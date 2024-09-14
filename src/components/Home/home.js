@@ -14,7 +14,9 @@ import options from "../../icons/options.png";
 import share from "../../icons/share.png";
 import comments from "../../icons/comments.png";
 import save from "../../icons/save.png";
-import butDelete from "../../icons/butDelete.png";
+import emojis from "../../icons/emojis.png";
+import Dropdown from "react-bootstrap/Dropdown";
+// import DropdownButton from "react-bootstrap/DropdownButton";
 
 Modal.setAppElement("#root");
 
@@ -23,7 +25,8 @@ export function Home() {
   const [secondModalIsOpen, setSecondModalIsOpen] = useState(false);
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
-  const [posts, setPosts] = useState([]); 
+  const [posts, setPosts] = useState([]);
+  const [like, setLike] = useState(0);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -62,6 +65,14 @@ export function Home() {
       setPosts([newPost, ...posts]);
       closeSecondModal();
     }
+  };
+
+  const handleDelete = (id) => {
+    setPosts(posts.filter((post) => post.id !== id));
+  };
+
+  const plusLike = () => {
+    setLike(like + 1);
   };
 
   const Upload = () => (
@@ -114,6 +125,19 @@ export function Home() {
       </div>
     </div>
   );
+
+  const blockSuggestion = (
+    <div className="block-suggestion">
+      <div className="ellipse-sug">
+        <img src={ellipse} className="ellipse-sug" />
+      </div>
+      <div className="acc-name">
+        <div>Akmurza</div>
+        <div>Suggestion for you</div>
+      </div>
+      <div>Follow</div>
+    </div>
+  );
   return (
     <>
       <header>
@@ -141,53 +165,87 @@ export function Home() {
         <img src={ellipse} className="ellipse" alt="ellipse" />
       </header>
       <div className="block-main">
-      <main>
-        {posts.map((post) => (
-          <div key={post.id} className="post-item">
-            <div className="avatar">
-              <img src={ellipse} className="ellipse-2" />
-              Akmurza
-              <img src={options} className="options"/>
-            </div>
-            <img src={post.image} alt="Post" className="post-image" />
-            <div className="post-description">
-              <div className="like-comm">
-                <img src={likes} className="like" />
-                <img src={comments} className="comm" />
-                <img src={share} className="share" />
-                <img src={save} className="save" />
+        <main>
+          {posts.map((post) => (
+            <div key={post.id} className="post-item">
+              {console.log(post)}
+              <div className="avatar">
+                <img src={ellipse} className="ellipse-2" />
+                Akmurza
+                <Dropdown align="end">
+                  <Dropdown.Toggle as="span" className="options-toggle">
+                    <img src={options} className="options" alt="options" />
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item bsPrefix="edit">
+                      <div className="edit-div">Edit</div>
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      bsPrefix="delete"
+                      onClick={() => handleDelete(post.id)}
+                    >
+                      <div className="delete-div">Delete</div>
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </div>
-              <div className="sub-description">
-                <div className="likes-2">999,999 likes</div>
-                <div className="description-2">
-                  <div className="ava-name">Akmurza</div>
-                  {post.description}
+              <img src={post.image} alt="Post" className="post-image" />
+              <div className="post-description">
+                <div className="like-comm">
+                  <img src={likes} className="like" onClick={plusLike} />
+                  <img src={comments} className="comm" />
+                  <img src={share} className="share" />
+                  <img src={save} className="save" />
                 </div>
-                <div className="see-comm"></div>
-                <div className="time"></div>
+                <div className="sub-description">
+                  <div className="likes-2">{like} likes</div>
+                  <div className="description-2">
+                    <div className="ava-name">
+                      <span>Akmurza </span>
+                      {post.description}
+                    </div>
+                  </div>
+                  <div className="see-comm">See 99 comments</div>
+                  <div className="time">5 HOURS AGO</div>
+                </div>
+                <div className="comments-block">
+                  <div className="emojis">
+                    <img src={emojis} />
+                  </div>
+                  <div className="add-comment">Add a comment...</div>
+                  <div className="post-but">Post</div>
+                </div>
               </div>
-              <div></div>
+            </div>
+          ))}
+        </main>
+        <aside>
+          <div className="sidebar">
+            <div className="block-1">
+              <div className="sub-1-1">
+                <img src={ellipse} className="ellipse-1" />
+              </div>
+              <div className="sub-1-2">
+                <div>Akmurza</div>
+                <div>Akmurza</div>
+              </div>
+              <div className="sub-1-3">Change</div>
+            </div>
+            <div className="block-sug">
+              <div className="for-you">Suggestions for you </div>
+              <div className="see">See all</div>
+            </div>
+            <div className="block-suggestion-father">
+              {blockSuggestion}
+              {blockSuggestion}
+              {blockSuggestion}
+              {blockSuggestion}
+              {blockSuggestion}
             </div>
           </div>
-        ))}
-      </main>
-      <aside>
-        <div className="sidebar">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </aside>
+        </aside>
       </div>
     </>
-
   );
 }

@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('sf-pro-display');
+}
 header {
   display: flex;
   align-items: center;
@@ -8,28 +12,36 @@ header {
 }
 .logo {
   margin: 15px 150px 16px 0;
+  cursor: pointer;
 }
 .search {
   margin: 12px 150px 12px 0;
+  cursor: pointer;
 }
 .home {
   margin: 18px 25px 18px 0;
+  cursor: pointer;
 }
 .msg {
   margin: 18px 25px 18px 0;
+  cursor: pointer;
   
 }
 .add {
   margin: 18px 25px 18px 0;
+  cursor: pointer;
 }
 .trends {
   margin: 18px 25px 18px 0;
+  cursor: pointer;
 }
 .likes {
   margin: 18px 25px 18px 0;
+  cursor: pointer;
 }
 .ellipse {
   margin: 18px 25px 18px 0;
+  cursor: pointer;
 }
 .modal-content {
   border-radius: 24px;
@@ -179,7 +191,9 @@ main {
 .post-item {
   max-width: 600px;
   max-height: 910px;
-  margin: 24px auto auto 246px;
+  margin: 24px 0 0 0;
+  position: absolute;
+  right: 44%;
   /* padding: 0 30px 0 0; */
 }
 .post-image {
@@ -193,6 +207,7 @@ main {
   display: flex;
   align-items: center;
   background-color: #ffffff;
+  border-radius: 3px 3px 0px 0px;
 }
 .ellipse-2 {
   margin: 0 14px 0 20px;
@@ -204,6 +219,7 @@ main {
   width: 600px;
   height: 249px;
   background-color: #ffffff;
+  border-radius: 0 0 3px 3px;
 }
 .description-2 {
   display: flex;
@@ -230,18 +246,231 @@ body {
 }
 .block-main{
   display: flex;
+  justify-content: center;
+  position: relative;
+}
+.block-1{
+  width: 300px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+}
+.ellipse-1{
+  width: 56px;
+  height: 56px;
+}
+.ellipse-sug{
+  width: 32px;
+  height: 32px;
+}
+.sidebar {
+  margin: 24px 0 0 35px;
+  position: absolute;
+  right: 24%;
+}
+.block-suggestion{
+  width: 300px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  margin: 12px 0 0 0;
+}
+.block-sug{
+  width: 300px;
+  height: 18px;
+  display: flex;
+  margin: 19px 0 20px 0;
+}
+.sub-1-2{
+  margin: 0 131px 0 12px;
+}
+.sub-1-2 div:nth-child(2){
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  color: #8e8e8e;
+  margin: 3px 0 0 0;
+}
+.sub-1-2 div:nth-child(1){
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #000;
+}
+.sub-1-3{
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 150%;
+  color: #0095f6;
+  margin: 10px 0 11px 0;
+  text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.for-you{
+  width:125px;
+  height:18px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  color: #8e8e8e;
+}
+.see{
+  width: 36px;
+  height: 18px;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 150%;
+  color: #262626;
+  margin: 0 0 0 139px;
+}
+.acc-name{
+  margin: 0 119px 0 12px;
+}
+.acc-name div:nth-child(1){
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #000;
+}
+.acc-name div:nth-child(2){
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #8e8e8e;
+}
+.block-suggestion div:nth-child(3){
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 150%;
+  color: #0095f6;
+}
+.see-comm{
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  color: #8e8e8e;
+}
+.time{
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 12px;
+  color: #8e8e8e;
+  margin: 10px 0 0 0;
+}
+.ava-name span{
+  font-family:'Roboto';
+  font-weight: 500;
+  font-size: 14px;
+  color: #000;
+}
+/* .ava-name:nth-child(2){
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 14px;
+  color: #000;
+  font-weight: 400;
+  line-height: 129%;
+} */
+.comments-block{
+  width: 100%;
+  height: 61px;
+  display: flex;
+  margin: 25px 0 0 0;
+  border-top: 1px solid #efefef;
+  /* align-items: center; */
+}
+.emojis{
+  width: 24px;
+  height: 32px;
+  margin: 19px 0 0 19px;
+}
+.post-but{
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(0, 149, 246, 0.25);
+  margin: 23px 0 0 0 ;
+}
+.add-comment{
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  color: #8e8e8e;
+  margin: 23px 385px 0 12px;
 }
 
-/* .edit,
-.delete {
+.options-toggle {
+  cursor: pointer; 
+  display: inline-block; 
+}
+
+
+.options {
+  margin: 0; 
+  width: 24px; 
+  height: 24px;
+}
+.dropdown-menu.show.dropdown-menu-end {
+  position: absolute;
+  inset: 0px 0px auto auto;
+  transform: translate3d(-1008px, 130px, 0px);
+}
+.dropdown-menu.dropdown-menu-end {
+  position: absolute;
+  right: 0; 
+  top: 100%; 
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease; 
+}
+
+.dropdown-menu.show {
+  display: block;
+  opacity: 1;
+}
+.dropdown {
+  margin: 0 0 0 439px;
+}
+.edit, .edit-div {
+  list-style: none;
+  text-decoration: none;
+  text-align: center;
   border-radius: 20px;
   width: 116px;
   height: 26px;
-  background: #2b3138;
-  font-family: var(--second-family);
+  color: white;
+  background-color: #2b3138;
+}
+.delete, .delete-div{
+    list-style: none;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 20px;
+    width: 116px;
+    height: 26px;
+    color: white;
+    background-color: #2b3138;
+}
+.delete-div {
+  margin: 4px 0px 0 0px;
+  font-family: 'SF Pro Display', sans-serif;
   font-weight: 700;
   font-size: 11px;
   color: #f4faff;
   align-content: center;
-  text-align: center;
-} */
+}
+
+.edit-div{
+  font-family: 'SF Pro Display', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: #f4faff;
+  align-content: center;
+}

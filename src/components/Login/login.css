@@ -16,7 +16,7 @@ body{
 }
 .instagram{
   margin: 234px 0 55px 0;
-  font-family: 'Roboto", sans-serif';
+  /* font-family: 'Roboto", sans-serif'; */
 }
 .user{
   border: 1px solid #6a6a6a;
@@ -24,7 +24,7 @@ body{
   width: 720px;
   height: 133px;
   background: #f5f5f5;
-  font-family: "Roboto-Regular", sans-serif;
+  font-family: 'Roboto';
   font-size: 32px;
   font-weight: 400;
 }
@@ -35,9 +35,17 @@ body{
   height: 133px;
   background: #f5f5f5;
   margin: 32px 0 32px 0;
-  font-family: "Roboto-Regular", sans-serif;
+  font-family: 'Roboto';
   font-size: 32px;
   font-weight: 400;
+}
+.password::placeholder{
+  text-align: start;
+  padding: 0 0 0 35px;
+}
+.user::placeholder{
+  text-align: start;
+  padding: 0 0 0 35px;
 }
 ::-webkit-input-placeholder {
   text-align:center;
@@ -56,6 +64,7 @@ body{
 }
 .but:hover{
   box-shadow: 0 0 0 2px white, 0 0 0 4px #3C82F8;
+  cursor: pointer;
 }
 
   
